@@ -49,6 +49,10 @@ export function Header() {
     };
   }, [open]);
 
+  // The homepage hero is light, inner-page banners are dark. While the header is
+  // transparent (top of page, menu closed) its text must contrast with what is beneath.
+  const onDark = !scrolled && !open && pathname !== "/";
+
   // No backdrop-filter while the menu is open: it would become the containing
   // block for the fixed mobile panel and collapse it.
   return (
@@ -58,11 +62,13 @@ export function Header() {
           ? "border-line bg-white"
           : scrolled
             ? "border-line bg-white/90 shadow-[0_6px_24px_-12px_rgb(14_16_19/0.14)] backdrop-blur-xl"
-            : "border-white/10 bg-black/15 backdrop-blur-xs"
+            : onDark
+              ? "border-white/10 bg-black/15 backdrop-blur-xs"
+              : "border-ink-900/5 bg-white/40 backdrop-blur-xs"
       }`}
     >
       <div className="container-site flex h-(--header-h) items-center justify-between gap-6">
-        <Logo preload variant={scrolled || open ? "dark" : "light"} onClick={() => setOpen(false)} />
+        <Logo preload variant={onDark ? "light" : "dark"} onClick={() => setOpen(false)} />
 
         <nav aria-label="Main" className="hidden lg:block">
           <ul className="flex items-center gap-1">
@@ -74,7 +80,7 @@ export function Header() {
                     href={link.href}
                     aria-current={active ? "page" : undefined}
                     className={`relative rounded-full px-4 py-2 text-[0.95rem] font-semibold transition-colors ${
-                      scrolled
+                      !onDark
                         ? active
                           ? "text-accent-700"
                           : "text-ink/80 hover:text-accent-700"
@@ -86,7 +92,7 @@ export function Header() {
                     {link.label}
                     <span
                       className={`absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full transition-transform duration-300 ${
-                        scrolled ? "bg-accent-500" : "bg-accent-400"
+                        !onDark ? "bg-accent-500" : "bg-accent-400"
                       } ${active ? "scale-x-100" : "scale-x-0"}`}
                       aria-hidden="true"
                     />
@@ -101,12 +107,12 @@ export function Header() {
           <a
             href={site.phone.href}
             className={`flex items-center gap-2 text-sm font-semibold transition-colors xl:mr-2 ${
-              scrolled ? "text-ink/80 hover:text-accent-700" : "text-white/90 hover:text-white"
+              !onDark ? "text-ink/80 hover:text-accent-700" : "text-white/90 hover:text-white"
             }`}
           >
             <span
               className={`size-9 rounded-full grid place-items-center transition-colors ${
-                scrolled ? "icon-tile-soft" : "bg-white/15 text-white border border-white/20"
+                !onDark ? "icon-tile-soft" : "bg-white/15 text-white border border-white/20"
               }`}
             >
               <Icon name="phone" size={16} />
@@ -124,7 +130,7 @@ export function Header() {
         <button
           type="button"
           className={`grid size-11 place-items-center rounded-xl border transition-colors lg:hidden ${
-            scrolled || open
+            !onDark
               ? "border-line bg-white text-ink-900 hover:border-accent-200 hover:text-accent-700"
               : "border-white/20 bg-black/30 text-white backdrop-blur-md hover:border-white/40"
           }`}
