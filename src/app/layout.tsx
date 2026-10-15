@@ -100,7 +100,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <Header />
-        <main id="main" className="flex-1 bg-black">
+        <main id="main" className="flex-1 bg-black w-full max-w-full overflow-x-clip">
           {children}
         </main>
         <Footer />

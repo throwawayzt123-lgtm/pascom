@@ -53,7 +53,7 @@ export function Header() {
   // block for the fixed mobile panel and collapse it.
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300 ${
+      className={`sticky top-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300 w-full max-w-full overflow-x-clip ${
         open
           ? "border-line bg-black"
           : scrolled

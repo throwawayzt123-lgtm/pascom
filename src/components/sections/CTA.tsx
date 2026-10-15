@@ -17,7 +17,7 @@ export function CTA({
   description = "Book a free strategy call. We'll review your products, show you the untapped opportunity on TikTok Shop, and map out a clear plan to scale.",
 }: CTAProps) {
   return (
-    <section className="bg-black py-[calc(var(--section-y)*0.8)]">
+    <section className="bg-black py-[calc(var(--section-y)*0.8)] overflow-hidden w-full max-w-full">
       <div className="container-site">
         <div className="reveal relative overflow-hidden rounded-(--round-xl) border border-line bg-[#0a0c10] px-6 py-14 text-center text-white shadow-2xl sm:px-12 sm:py-20">
           {/* Floating limited slots badge */}

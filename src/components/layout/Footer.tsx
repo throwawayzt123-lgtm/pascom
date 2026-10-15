@@ -9,7 +9,7 @@ export function Footer() {
   const socials = site.socials.filter((social) => social.href);
 
   return (
-    <footer className="on-dark relative isolate overflow-hidden bg-black text-white border-t border-line">
+    <footer className="on-dark relative isolate overflow-hidden bg-black text-white border-t border-line w-full max-w-full">
       <div className="container-site grid gap-12 pt-20 pb-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
         <div className="sm:col-span-2 lg:col-span-4">
           <Logo variant="light" />

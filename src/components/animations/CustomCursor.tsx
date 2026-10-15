@@ -106,13 +106,13 @@ export function CustomCursor() {
       <div
         ref={dotRef}
         aria-hidden="true"
-        className="pointer-events-none fixed top-0 left-0 z-9999 -ml-1 -mt-1 size-2 rounded-full bg-accent-500 shadow-[0_0_8px_#12b0e2] opacity-0"
+        className="pointer-events-none fixed top-0 left-0 z-9999 -ml-1 -mt-1 size-2 rounded-full bg-accent-500 shadow-[0_0_8px_#12b0e2] opacity-0 hidden md:block"
       />
       {/* Outer aura ring */}
       <div
         ref={ringRef}
         aria-hidden="true"
-        className="pointer-events-none fixed top-0 left-0 z-9998 -ml-4 -mt-4 size-8 rounded-full border border-accent-500/50 backdrop-blur-[1px] opacity-0 transition-transform"
+        className="pointer-events-none fixed top-0 left-0 z-9998 -ml-4 -mt-4 size-8 rounded-full border border-accent-500/50 backdrop-blur-[1px] opacity-0 transition-transform hidden md:block"
       />
     </>
   );

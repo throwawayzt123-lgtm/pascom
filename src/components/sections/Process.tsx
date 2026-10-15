@@ -182,7 +182,7 @@ export function Process() {
   return (
     <section
       ref={sectionRef}
-      className="on-dark bg-black relative isolate py-24 sm:py-32 text-white"
+      className="on-dark bg-black relative isolate py-24 sm:py-32 text-white overflow-hidden w-full max-w-full"
     >
       <div className="container-site relative z-10">
         {/* Split Screen Layout: Left side gets STUCK (pinned), Right side KEEPS SCROLLING */}

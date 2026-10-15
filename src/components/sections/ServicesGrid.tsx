@@ -122,11 +122,11 @@ export function ServicesGrid() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-black text-white overflow-hidden"
+      className="relative w-full max-w-full bg-black text-white overflow-hidden"
     >
       <div
         ref={pinWrapperRef}
-        className="relative flex h-screen max-h-screen w-full flex-col justify-between overflow-hidden bg-black pt-[calc(var(--header-h)+0.75rem)] pb-5 md:pb-7"
+        className="relative flex h-screen max-h-screen w-full max-w-full flex-col justify-between overflow-hidden bg-black pt-[calc(var(--header-h)+0.75rem)] pb-5 md:pb-7"
       >
         {/* Top Header Row with live counter & arrows */}
         <div className="container-site w-full shrink-0">
@@ -187,7 +187,7 @@ export function ServicesGrid() {
         </div>
 
         {/* Center: Horizontal Scrolling Track of 16:9 Cards (Matching Reference Picture 2) */}
-        <div className="relative my-auto flex w-full items-center overflow-visible py-2">
+        <div className="relative my-auto flex w-full max-w-full items-center overflow-hidden py-3">
           <div
             ref={trackRef}
             style={{
@@ -209,7 +209,7 @@ export function ServicesGrid() {
                   <Link
                     href={`/services#${service.slug}`}
                     onClick={(e) => handleCardClick(e, index)}
-                    className={`group relative block aspect-[16/9] w-[min(84vw,860px,calc(52vh*16/9))] overflow-hidden rounded-2xl md:rounded-3xl border transition-all duration-500 ${
+                    className={`group relative block aspect-[16/10] sm:aspect-[16/9] w-[min(86vw,860px,calc(54vh*16/9))] overflow-hidden rounded-2xl md:rounded-3xl border transition-all duration-500 ${
                       isActive
                         ? "border-accent-500/80 shadow-[0_20px_50px_rgba(0,0,0,0.9)] opacity-100 scale-100 ring-1 ring-accent-500/40"
                         : "border-white/10 opacity-40 scale-[0.95] hover:opacity-75 hover:scale-[0.98]"
@@ -232,10 +232,10 @@ export function ServicesGrid() {
                     />
 
                     {/* Top Corner Meta Badges */}
-                    <div className="absolute inset-x-5 md:inset-x-8 top-5 md:top-7 z-10 flex items-center justify-between gap-3">
+                    <div className="absolute inset-x-4 sm:inset-x-5 md:inset-x-8 top-3.5 sm:top-5 md:top-7 z-10 flex items-center justify-between gap-3">
                       <div className="flex items-center gap-2">
                         {service.badge && (
-                          <span className="rounded-full border border-white/20 bg-black/80 px-3 py-1 text-[0.68rem] md:text-xs font-bold tracking-wider text-white uppercase backdrop-blur-md">
+                          <span className="rounded-full border border-white/20 bg-black/80 px-2.5 sm:px-3 py-1 text-[0.68rem] md:text-xs font-bold tracking-wider text-white uppercase backdrop-blur-md">
                             {service.badge}
                           </span>
                         )}
@@ -246,19 +246,19 @@ export function ServicesGrid() {
 
                       <div className="flex items-center gap-2">
                         {service.metric && (
-                          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/80 px-3 py-1 text-[0.68rem] md:text-xs font-bold text-white backdrop-blur-md">
+                          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/80 px-2.5 sm:px-3 py-1 text-[0.68rem] md:text-xs font-bold text-white backdrop-blur-md">
                             <span className="size-1.5 rounded-full bg-accent-500" />
                             {service.metric}
                           </span>
                         )}
-                        <span className="rounded-full border border-accent-500/40 bg-black/80 px-2.5 py-1 font-display text-[0.68rem] md:text-xs font-bold text-accent-400 backdrop-blur-md">
+                        <span className="rounded-full border border-accent-500/40 bg-black/80 px-2 sm:px-2.5 py-1 font-display text-[0.68rem] md:text-xs font-bold text-accent-400 backdrop-blur-md">
                           #{String(index + 1).padStart(2, "0")}
                         </span>
                       </div>
                     </div>
 
                     {/* Main Content Overlay: Number, Uppercase Title & Description (Matching Picture 2) */}
-                    <div className="absolute inset-x-5 md:inset-x-8 bottom-5 md:bottom-7 z-10">
+                    <div className="absolute inset-x-4 sm:inset-x-5 md:inset-x-8 bottom-3.5 sm:bottom-5 md:bottom-7 z-10">
                       <div className="flex items-center gap-2 mb-1.5">
                         <span className="font-display text-xs md:text-sm font-extrabold tracking-widest text-accent-400 uppercase">
                           0{index + 1}

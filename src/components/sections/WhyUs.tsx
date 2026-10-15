@@ -18,7 +18,7 @@ const points = [
 
 export function WhyUs() {
   return (
-    <section className="section bg-black text-white">
+    <section className="section bg-black text-white overflow-hidden max-w-full">
       <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         {/* Image collage */}
         <div className="reveal relative mx-auto w-full max-w-xl lg:max-w-none">
@@ -46,7 +46,7 @@ export function WhyUs() {
             </div>
           </div>
 
-          <div className="absolute -top-6 -left-3 z-10 sm:-left-6">
+          <div className="absolute -top-6 left-1 z-10 sm:-left-6">
             <FloatingSticker duration={5} yOffset={8} rotationAngle={-3}>
               <div className="flex items-center gap-3 rounded-2xl bg-[#0a0c10] p-4 pr-5 text-white shadow-xl border border-white/20 backdrop-blur-md">
                 <span className="grid size-11 place-items-center rounded-xl bg-accent-500/15 border border-accent-500/30 text-accent-400 shadow-sm">
