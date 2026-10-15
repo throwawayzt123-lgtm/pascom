@@ -8,7 +8,7 @@ type LogoProps = {
 };
 
 /** Horizontal lockup: the "P" mark from the logo + wordmark. */
-export function Logo({ variant = "dark", onClick, preload = false }: LogoProps) {
+export function Logo({ variant = "light", onClick, preload = false }: LogoProps) {
   const isLight = variant === "light";
   return (
     <Link

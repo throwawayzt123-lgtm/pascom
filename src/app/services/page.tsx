@@ -84,23 +84,17 @@ export default function ServicesPage() {
       </PageHero>
 
       {/* Service details */}
-      <section className="section bg-white">
+      <section className="section bg-black text-white">
         <div className="container-site space-y-6 sm:space-y-8">
           {services.map((service, index) => (
             <article
               key={service.slug}
               id={service.slug}
-              className="reveal card group relative grid scroll-mt-[calc(var(--header-h)+1.5rem)] gap-8 overflow-hidden border border-line bg-white p-6 transition-all duration-300 hover:border-accent-500/50 hover:shadow-(--elevation-lg) sm:p-10 lg:grid-cols-[1.15fr_1fr] lg:gap-14"
+              className="reveal group relative grid scroll-mt-[calc(var(--header-h)+1.5rem)] gap-8 overflow-hidden rounded-(--round-xl) border border-line bg-[#0a0c10] p-6 shadow-md transition-all duration-300 hover:border-accent-500 sm:p-10 lg:grid-cols-[1.15fr_1fr] lg:gap-14"
             >
-              {/* Funky decorative ambient light on card */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -top-20 -right-20 h-48 w-48 rounded-full bg-accent-500/10 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
-              />
-
               <div className="relative z-1 flex flex-col justify-between">
                 {/* Visual Image Showcase */}
-                <div className="relative aspect-[16/8.5] w-full overflow-hidden rounded-2xl border border-line/60 bg-surface-2 shadow-sm">
+                <div className="relative aspect-[16/8.5] w-full overflow-hidden rounded-2xl border border-line bg-[#12151b] shadow-sm">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -108,30 +102,31 @@ export default function ServicesPage() {
                     sizes="(min-width: 1024px) 550px, 100vw"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
                   />
+                  {/* Solid dark overlay (No Gradient) */}
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-ink-950/20 to-transparent"
+                    className="absolute inset-0 bg-black/40"
                   />
 
                   {/* Badges on image */}
                   <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
                     {service.badge && (
-                      <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-black tracking-wider text-ink-900 uppercase shadow-md backdrop-blur-md">
+                      <span className="rounded-full border border-white/20 bg-black/80 px-3 py-1 text-xs font-bold tracking-wider text-white uppercase backdrop-blur-md">
                         {service.badge}
                       </span>
                     )}
-                    <span className="rounded-full border border-white/20 bg-ink-950/75 px-3 py-1 font-display text-xs font-bold text-white shadow-md backdrop-blur-md">
+                    <span className="rounded-full border border-white/20 bg-black/80 px-3 py-1 font-display text-xs font-bold text-white shadow-md backdrop-blur-md">
                       #{String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
                   <div className="absolute bottom-3.5 left-3.5 flex items-center gap-2">
-                    <span className="icon-tile size-10.5 rounded-xl bg-gradient-to-br from-secondary to-secondary-600 text-white shadow-lg ring-2 ring-white/20">
+                    <span className="grid size-10.5 place-items-center rounded-xl bg-black/80 border border-white/20 text-accent-400 shadow-lg backdrop-blur-md transition-colors group-hover:bg-accent-500 group-hover:text-black">
                       <Icon name={service.icon} size={20} />
                     </span>
                     {service.metric && (
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-ink-950/75 px-3 py-1 text-xs font-bold text-white shadow-md backdrop-blur-md">
-                        <span className="size-1.5 rounded-full bg-secondary animate-pulse" />
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/80 px-3 py-1 text-xs font-bold text-white shadow-md backdrop-blur-md">
+                        <span className="size-1.5 rounded-full bg-accent-500" />
                         {service.metric}
                       </span>
                     )}
@@ -139,7 +134,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="mt-6 flex flex-wrap items-center gap-2.5">
-                  <h2 className="text-2xl font-bold text-ink sm:text-[1.85rem]">{service.title}</h2>
+                  <h2 className="text-2xl font-bold text-white sm:text-[1.85rem]">{service.title}</h2>
                 </div>
 
                 <p className="mt-3.5 text-[1.02rem] leading-relaxed text-muted">{service.description}</p>
@@ -161,18 +156,18 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              <div className="relative z-1 rounded-(--round-lg) border border-accent-100 bg-accent-50/70 p-6 backdrop-blur-xs transition-colors duration-300 group-hover:border-accent-200 group-hover:bg-accent-50 sm:p-8">
+              <div className="relative z-1 rounded-(--round-lg) border border-line bg-black/50 p-6 backdrop-blur-xs transition-colors duration-300 sm:p-8">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xs font-bold tracking-[0.16em] text-accent-700 uppercase">What&apos;s included</h3>
-                  <span className="text-[0.72rem] font-bold text-accent-600">{service.deliverables.length} Deliverables</span>
+                  <h3 className="text-xs font-bold tracking-[0.16em] text-accent-400 uppercase">What&apos;s included</h3>
+                  <span className="text-[0.72rem] font-bold text-accent-400">{service.deliverables.length} Deliverables</span>
                 </div>
                 <ul className="mt-5 space-y-3.5">
                   {service.deliverables.map((item) => (
                     <li key={item} className="flex items-start gap-3">
-                      <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-accent-500 text-on-primary shadow-xs">
+                      <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-accent-500/20 text-accent-400 ring-1 ring-accent-500/40">
                         <Icon name="check" size={13} strokeWidth={3} />
                       </span>
-                      <span className="text-sm font-semibold text-ink sm:text-[0.94rem]">{item}</span>
+                      <span className="text-sm font-semibold text-white sm:text-[0.94rem]">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -183,7 +178,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Engagement models */}
-      <section className="section bg-surface">
+      <section className="section bg-black text-white">
         <div className="container-site">
           <SectionHeading
             eyebrow="Ways to work with us"
@@ -200,29 +195,29 @@ export default function ServicesPage() {
                 key={plan.name}
                 className={`reveal relative flex flex-col rounded-(--round-xl) p-8 ${
                   plan.featured
-                    ? "on-dark bg-dark text-white shadow-(--elevation-lg) ring-1 ring-accent-500/40 lg:-my-4 lg:py-12"
-                    : "card"
+                    ? "border border-accent-500 bg-[#0a0c10] text-white shadow-xl lg:-my-4 lg:py-12"
+                    : "border border-line bg-[#0a0c10] text-white shadow-md"
                 }`}
               >
                 {plan.featured && (
-                  <span className="absolute top-6 right-6 rounded-full bg-secondary px-3 py-1 text-xs font-bold text-on-secondary">
+                  <span className="absolute top-6 right-6 rounded-full bg-accent-500 px-3.5 py-1 text-xs font-bold text-black shadow-md shadow-accent-500/20">
                     Most popular
                   </span>
                 )}
-                <h3 className="font-display text-2xl font-bold">{plan.name}</h3>
+                <h3 className="font-display text-2xl font-bold text-white">{plan.name}</h3>
                 <p className={`mt-2 ${plan.featured ? "text-white/70" : "text-muted"}`}>{plan.tagline}</p>
-                <p className={`mt-6 font-display text-lg font-semibold ${plan.featured ? "text-accent-500" : "text-accent-700"}`}>
+                <p className="mt-6 font-display text-lg font-semibold text-accent-400">
                   Custom quote
                 </p>
-                <ul className={`mt-6 flex-1 space-y-3.5 border-t pt-6 ${plan.featured ? "border-white/15" : "border-line"}`}>
+                <ul className="mt-6 flex-1 space-y-3.5 border-t border-line pt-6">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
                       <Icon
                         name="checkCircle"
                         size={20}
-                        className={`mt-0.5 shrink-0 ${plan.featured ? "text-accent-500" : "text-accent-700"}`}
+                        className="mt-0.5 shrink-0 text-accent-400"
                       />
-                      <span className={plan.featured ? "text-white/90" : "text-ink"}>{feature}</span>
+                      <span className="text-white/90">{feature}</span>
                     </li>
                   ))}
                 </ul>

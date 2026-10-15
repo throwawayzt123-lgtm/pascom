@@ -6,7 +6,7 @@ import { featuredProjects } from "@/data/portfolio";
 
 export function PortfolioPreview() {
   return (
-    <section className="section bg-surface">
+    <section className="section bg-black text-white">
       <div className="container-site">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading

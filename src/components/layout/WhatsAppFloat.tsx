@@ -15,7 +15,7 @@ export function WhatsAppFloat() {
           aria-label="Chat with PashaCommerce on WhatsApp"
           className="group flex items-center gap-3"
         >
-          <span className="pointer-events-none hidden translate-x-2 rounded-full border border-line bg-white px-4 py-2 text-xs font-bold text-ink-900 opacity-0 shadow-lg transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block">
+          <span className="pointer-events-none hidden translate-x-2 rounded-full border border-white/20 bg-[#0a0c10] px-4 py-2 text-xs font-bold text-white opacity-0 shadow-xl transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 sm:block">
             Chat with us on WhatsApp ⚡
           </span>
           <span className="relative grid size-14 place-items-center rounded-full bg-whatsapp text-white shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(37,211,102,0.6)]">

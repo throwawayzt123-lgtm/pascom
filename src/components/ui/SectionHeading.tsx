@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SplitTextHeading } from "@/components/animations/SplitTextHeading";
 
 type SectionHeadingProps = {
   eyebrow?: string;
@@ -21,7 +22,9 @@ export function SectionHeading({
       className={`reveal ${centered ? "mx-auto max-w-3xl text-center" : "max-w-2xl"} ${className}`}
     >
       {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-      <h2 className="text-h2 mt-5">{title}</h2>
+      <SplitTextHeading as="h2" className="text-h2 mt-5 text-white">
+        {title}
+      </SplitTextHeading>
       {description && (
         <p className={`text-lead mt-5 text-muted ${centered ? "mx-auto max-w-2xl" : ""}`}>
           {description}

@@ -66,13 +66,13 @@ export function ContactForm() {
   if (sentVia) {
     return (
       <div
-        className="flex min-h-112 flex-col items-center justify-center rounded-2xl border border-accent-100 bg-accent-50/40 p-8 text-center"
+        className="flex min-h-112 flex-col items-center justify-center rounded-2xl border border-line bg-[#0a0c10] p-8 text-center text-white"
         role="status"
       >
-        <span className="grid size-18 place-items-center rounded-full bg-gradient-to-tr from-accent-500 to-secondary text-white shadow-lg animate-bounce">
+        <span className="grid size-18 place-items-center rounded-full bg-accent-500 text-black shadow-lg animate-bounce">
           <Icon name="check" size={32} strokeWidth={3} />
         </span>
-        <h3 className="mt-6 font-display text-2xl font-black text-ink">You&apos;re All Set!</h3>
+        <h3 className="mt-6 font-display text-2xl font-black text-white">You&apos;re All Set!</h3>
         <p className="mt-3 max-w-sm text-muted">
           {sentVia === "whatsapp"
             ? "We've opened WhatsApp with your tailored enquiry pre-filled. Just hit send and our senior team will reply shortly!"
@@ -106,7 +106,7 @@ export function ContactForm() {
       <div>
         <label className="field-label flex items-center justify-between">
           <span>
-            Select Service <span className="text-secondary">*</span>
+            Select Service <span className="text-accent-400">*</span>
           </span>
           <span className="text-xs text-subtle">Click to quick-select</span>
         </label>
@@ -120,8 +120,8 @@ export function ContactForm() {
                 onClick={() => setSelectedService(isSelected ? "" : serviceTitle)}
                 className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? "bg-secondary text-white shadow-md ring-2 ring-secondary/30 scale-102"
-                    : "border border-line-strong bg-surface text-ink hover:border-accent-500 hover:bg-accent-50"
+                    ? "bg-accent-500 text-black font-extrabold shadow-[0_0_15px_rgba(18,176,226,0.35)] ring-2 ring-accent-400 scale-102"
+                    : "border border-white/10 bg-[#12151b] text-white hover:border-accent-500 hover:text-accent-400"
                 }`}
               >
                 {serviceTitle}
@@ -136,7 +136,7 @@ export function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="field-label">
-            Full name <span className="text-secondary">*</span>
+            Full name <span className="text-accent-400">*</span>
           </label>
           <input
             id="name"
@@ -150,7 +150,7 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="email" className="field-label">
-            Email <span className="text-secondary">*</span>
+            Email <span className="text-accent-400">*</span>
           </label>
           <input
             id="email"
@@ -216,8 +216,8 @@ export function ContactForm() {
                 onClick={() => setSelectedRevenue(isSelected ? "" : option)}
                 className={`rounded-lg px-3.5 py-1.5 text-xs font-bold transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? "bg-accent-500 text-ink shadow-sm ring-2 ring-accent-500/40"
-                    : "border border-line bg-surface text-ink hover:border-accent-500 hover:bg-accent-50"
+                    ? "bg-accent-500 text-black shadow-sm ring-2 ring-accent-500/40"
+                    : "border border-line bg-[#12151b] text-white hover:border-accent-500 hover:text-accent-400"
                 }`}
               >
                 {option}
@@ -231,7 +231,7 @@ export function ContactForm() {
       {/* Message textarea */}
       <div>
         <label htmlFor="message" className="field-label">
-          Tell us about your brand & growth goals <span className="text-secondary">*</span>
+          Tell us about your brand & growth goals <span className="text-accent-400">*</span>
         </label>
         <textarea
           id="message"

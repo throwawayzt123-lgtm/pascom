@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0e1013",
+  themeColor: "#000000",
 };
 
 const organizationJsonLd = {
@@ -83,8 +83,8 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${manrope.variable} ${merienda.variable} antialiased`}>
-      <body className="flex min-h-dvh flex-col">
+    <html lang="en" className={`${manrope.variable} ${merienda.variable} antialiased bg-black text-white`}>
+      <body className="flex min-h-dvh flex-col bg-black text-white">
         <GsapInit />
         <CustomCursor />
         <script
@@ -95,12 +95,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <a
           href="#main"
-          className="sr-only z-60 rounded-lg bg-white px-4 py-2 font-semibold text-accent-700 shadow-lg focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-60 rounded-lg border border-white/20 bg-[#0a0c10] px-4 py-2 font-semibold text-accent-400 shadow-xl focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           Skip to content
         </a>
         <Header />
-        <main id="main" className="flex-1">
+        <main id="main" className="flex-1 bg-black">
           {children}
         </main>
         <Footer />

@@ -41,14 +41,6 @@ export function TiltCard({
       rotXTo(-py * maxTilt);
       rotYTo(px * maxTilt);
       zTo(15);
-
-      if (glare && glareRef.current) {
-        gsap.to(glareRef.current, {
-          opacity: 0.16,
-          background: `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 65%)`,
-          duration: 0.2,
-        });
-      }
     };
 
     const handleMouseEnter = () => {
@@ -68,13 +60,6 @@ export function TiltCard({
         duration: 0.6,
         ease: "power3.out",
       });
-
-      if (glare && glareRef.current) {
-        gsap.to(glareRef.current, {
-          opacity: 0,
-          duration: 0.4,
-        });
-      }
     };
 
     card.addEventListener("mousemove", handleMouseMove);

@@ -46,10 +46,10 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
         breadcrumb={[{ label: "Portfolio", href: "/portfolio" }, { label: project.client }]}
       />
 
-      <section className="bg-white pb-(--section-y)">
+      <section className="bg-black pb-(--section-y) text-white">
         <div className="container-site">
           {/* Cover image overlapping the hero */}
-          <div className="reveal relative -mt-10 aspect-[16/9] overflow-hidden rounded-(--round-xl) shadow-(--elevation-lg) sm:-mt-14 lg:aspect-[21/9]">
+          <div className="reveal relative -mt-10 aspect-[16/9] overflow-hidden rounded-(--round-xl) border border-line shadow-2xl sm:-mt-14 lg:aspect-[21/9]">
             <Image
               src={project.image}
               alt={`${project.client} project cover`}
@@ -63,9 +63,9 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
           {/* Key metrics */}
           <dl className="reveal mt-8 grid gap-4 sm:grid-cols-3">
             {project.metrics.map((metric) => (
-              <div key={metric.label} className="card flex flex-col-reverse p-6 text-center">
+              <div key={metric.label} className="flex flex-col-reverse rounded-(--round-lg) border border-line bg-[#0a0c10] p-6 text-center shadow-md">
                 <dt className="mt-1 font-medium text-muted">{metric.label}</dt>
-                <dd className="highlight font-display text-4xl font-bold">{metric.value}</dd>
+                <dd className="font-display text-4xl font-bold text-accent-400">{metric.value}</dd>
               </div>
             ))}
           </dl>
@@ -73,7 +73,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
           <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_22rem] lg:gap-16">
             <div className="space-y-12">
               <article className="reveal">
-                <h2 className="flex items-center gap-3 text-2xl font-bold">
+                <h2 className="flex items-center gap-3 text-2xl font-bold text-white">
                   <span className="icon-tile-soft size-10 rounded-xl">
                     <Icon name="target" size={18} />
                   </span>
@@ -83,7 +83,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
               </article>
 
               <article className="reveal">
-                <h2 className="flex items-center gap-3 text-2xl font-bold">
+                <h2 className="flex items-center gap-3 text-2xl font-bold text-white">
                   <span className="icon-tile-soft size-10 rounded-xl">
                     <Icon name="lightbulb" size={18} />
                   </span>
@@ -91,18 +91,18 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
                 </h2>
                 <ol className="mt-6 space-y-4">
                   {project.strategy.map((step, index) => (
-                    <li key={step} className="flex gap-4 rounded-(--round-lg) border border-line bg-surface p-5">
-                      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-accent-500 font-display text-sm font-bold text-on-primary">
+                    <li key={step} className="flex gap-4 rounded-(--round-lg) border border-line bg-[#0a0c10] p-5">
+                      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-accent-500 font-display text-sm font-bold text-black">
                         {index + 1}
                       </span>
-                      <span className="pt-1 leading-relaxed text-ink">{step}</span>
+                      <span className="pt-1 leading-relaxed text-white">{step}</span>
                     </li>
                   ))}
                 </ol>
               </article>
 
               <article className="reveal">
-                <h2 className="flex items-center gap-3 text-2xl font-bold">
+                <h2 className="flex items-center gap-3 text-2xl font-bold text-white">
                   <span className="icon-tile-soft size-10 rounded-xl">
                     <Icon name="award" size={18} />
                   </span>
@@ -111,8 +111,8 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
                 <ul className="mt-6 space-y-3.5">
                   {project.results.map((result) => (
                     <li key={result} className="flex items-start gap-3">
-                      <Icon name="checkCircle" size={22} className="mt-0.5 shrink-0 text-accent-700" />
-                      <span className="text-[1.03rem] leading-relaxed text-ink">{result}</span>
+                      <Icon name="checkCircle" size={22} className="mt-0.5 shrink-0 text-accent-400" />
+                      <span className="text-[1.03rem] leading-relaxed text-white">{result}</span>
                     </li>
                   ))}
                 </ul>
@@ -120,20 +120,20 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
             </div>
 
             <aside className="space-y-6 lg:sticky lg:top-[calc(var(--header-h)+2rem)] lg:self-start">
-              <div className="card p-6">
-                <h2 className="text-sm font-bold tracking-[0.14em] text-accent-700 uppercase">Project overview</h2>
+              <div className="rounded-(--round-lg) border border-line bg-[#0a0c10] p-6 shadow-md text-white">
+                <h2 className="text-sm font-bold tracking-[0.14em] text-accent-400 uppercase">Project overview</h2>
                 <dl className="mt-5 space-y-4 text-[0.95rem]">
                   <div>
                     <dt className="text-muted">Client</dt>
-                    <dd className="mt-0.5 font-semibold">{project.client}</dd>
+                    <dd className="mt-0.5 font-semibold text-white">{project.client}</dd>
                   </div>
                   <div>
                     <dt className="text-muted">Industry</dt>
-                    <dd className="mt-0.5 font-semibold">{project.category}</dd>
+                    <dd className="mt-0.5 font-semibold text-white">{project.category}</dd>
                   </div>
                   <div>
                     <dt className="text-muted">Duration</dt>
-                    <dd className="mt-0.5 font-semibold">{project.duration}</dd>
+                    <dd className="mt-0.5 font-semibold text-white">{project.duration}</dd>
                   </div>
                   <div>
                     <dt className="text-muted">Services</dt>
@@ -141,7 +141,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
                       {project.services.map((service) => (
                         <span
                           key={service}
-                          className="rounded-full bg-accent-50 px-3 py-1 text-xs font-semibold text-accent-700"
+                          className="rounded-full border border-white/20 bg-black/60 px-3 py-1 text-xs font-semibold text-white"
                         >
                           {service}
                         </span>
@@ -151,7 +151,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
                 </dl>
               </div>
 
-              <div className="on-dark bg-dark rounded-(--round-lg) p-6 text-white">
+              <div className="rounded-(--round-lg) border border-accent-500/40 bg-[#0a0c10] p-6 text-white shadow-xl">
                 <h2 className="font-display text-xl font-bold">Want results like these?</h2>
                 <p className="mt-2 text-sm text-white/70">
                   Let&apos;s talk about your products and build a plan for your TikTok Shop.
@@ -164,7 +164,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
                     href={whatsappLink(`Hi PashaCommerce! I saw the "${project.client}" case study and want similar results.`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-ghost-light btn-sm w-full"
+                    className="btn btn-outline btn-sm w-full"
                   >
                     <Icon name="whatsapp" size={17} className="text-whatsapp" />
                     WhatsApp us
@@ -177,7 +177,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/portfolio/[s
       </section>
 
       {/* Related */}
-      <section className="section bg-surface">
+      <section className="section bg-black text-white">
         <div className="container-site">
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
             <h2 className="text-h2 reveal">More case studies</h2>

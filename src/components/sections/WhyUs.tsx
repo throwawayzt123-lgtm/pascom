@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { FloatingSticker } from "@/components/animations/FloatingSticker";
 import { Magnetic } from "@/components/animations/Magnetic";
+import { SplitTextHeading } from "@/components/animations/SplitTextHeading";
 import { TiltCard } from "@/components/animations/TiltCard";
 import { images } from "@/data/images";
 
@@ -17,12 +18,12 @@ const points = [
 
 export function WhyUs() {
   return (
-    <section className="section bg-white">
+    <section className="section bg-black text-white">
       <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         {/* Image collage */}
         <div className="reveal relative mx-auto w-full max-w-xl lg:max-w-none">
           <TiltCard maxTilt={5}>
-            <div className="relative aspect-[4/3.4] overflow-hidden rounded-(--round-xl) shadow-(--elevation-lg) ring-1 ring-black/5">
+            <div className="relative aspect-[4/3.4] overflow-hidden rounded-(--round-xl) border border-line shadow-xl">
               <Image
                 src={images.teamCollab}
                 alt="PashaCommerce team collaborating on a client strategy"
@@ -33,7 +34,7 @@ export function WhyUs() {
             </div>
           </TiltCard>
 
-          <div className="absolute -right-3 -bottom-10 hidden w-[46%] overflow-hidden rounded-(--round-lg) border-[6px] border-white shadow-(--elevation-lg) sm:block lg:-right-8">
+          <div className="absolute -right-3 -bottom-10 hidden w-[46%] overflow-hidden rounded-(--round-lg) border-[4px] border-[#0a0c10] shadow-xl sm:block lg:-right-8">
             <div className="relative aspect-[4/3]">
               <Image
                 src={images.analyticsDashboard}
@@ -47,8 +48,8 @@ export function WhyUs() {
 
           <div className="absolute -top-6 -left-3 z-10 sm:-left-6">
             <FloatingSticker duration={5} yOffset={8} rotationAngle={-3}>
-              <div className="flex items-center gap-3 rounded-2xl bg-ink-900 p-4 pr-5 text-white shadow-(--elevation-lg) border border-white/10 backdrop-blur-md">
-                <span className="icon-tile size-11 bg-gradient-to-br from-secondary to-secondary-600 text-white">
+              <div className="flex items-center gap-3 rounded-2xl bg-[#0a0c10] p-4 pr-5 text-white shadow-xl border border-white/20 backdrop-blur-md">
+                <span className="grid size-11 place-items-center rounded-xl bg-accent-500/15 border border-accent-500/30 text-accent-400 shadow-sm">
                   <Icon name="target" size={20} />
                 </span>
                 <div>
@@ -63,10 +64,10 @@ export function WhyUs() {
         {/* Copy */}
         <div className="reveal">
           <span className="eyebrow">Why PashaCommerce</span>
-          <h2 className="text-h2 mt-5">
+          <SplitTextHeading as="h2" className="text-h2 mt-5 text-white">
             We don&apos;t do everything. We do <span className="highlight">TikTok Shop</span>&nbsp;—
             exceptionally well.
-          </h2>
+          </SplitTextHeading>
           <p className="text-lead mt-5 text-muted">
             TikTok Shop moves fast. Algorithms, ad products and policies change constantly. Being
             100% focused on one platform means we spot opportunities early and turn them into
@@ -75,10 +76,10 @@ export function WhyUs() {
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {points.map((point) => (
               <li key={point} className="flex items-start gap-3">
-                <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-accent-50 text-accent-700 ring-1 ring-accent-200">
+                <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-accent-500/20 text-accent-400 ring-1 ring-accent-500/40">
                   <Icon name="check" size={14} strokeWidth={3} />
                 </span>
-                <span className="text-[0.95rem] font-semibold text-ink">{point}</span>
+                <span className="text-[0.95rem] font-semibold text-white">{point}</span>
               </li>
             ))}
           </ul>

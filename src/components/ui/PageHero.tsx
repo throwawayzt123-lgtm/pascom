@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { SplitTextHeading } from "@/components/animations/SplitTextHeading";
 import { Icon } from "./Icon";
 
 type PageHeroProps = {
@@ -13,7 +14,7 @@ type PageHeroProps = {
 /** Dark banner used at the top of inner pages. */
 export function PageHero({ eyebrow, title, description, breadcrumb, children }: PageHeroProps) {
   return (
-    <section className="on-dark bg-dark relative isolate overflow-hidden -mt-(--header-h) pt-(--header-h)">
+    <section className="on-dark bg-black text-white relative isolate overflow-hidden -mt-(--header-h) pt-(--header-h)">
       <div className="container-site pt-16 pb-20 text-center sm:pt-20 sm:pb-24">
         <nav aria-label="Breadcrumb" className="animate-fade-up mb-8 flex justify-center">
           <ol className="flex flex-wrap items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70">
@@ -40,7 +41,14 @@ export function PageHero({ eyebrow, title, description, breadcrumb, children }: 
           </ol>
         </nav>
         <span className="eyebrow animate-fade-up delay-1">{eyebrow}</span>
-        <h1 className="text-h1 animate-fade-up delay-2 mx-auto mt-6 max-w-4xl">{title}</h1>
+        <SplitTextHeading
+          as="h1"
+          isHero
+          delay={0.2}
+          className="text-h1 mx-auto mt-6 max-w-4xl"
+        >
+          {title}
+        </SplitTextHeading>
         <p className="text-lead animate-fade-up delay-3 mx-auto mt-6 max-w-2xl text-white/70">
           {description}
         </p>

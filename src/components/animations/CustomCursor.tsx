@@ -40,13 +40,13 @@ export function CustomCursor() {
     const onMouseEnterInteractive = () => {
       gsap.to(ring, {
         scale: 1.8,
-        borderColor: "rgba(244, 45, 83, 0.75)",
-        backgroundColor: "rgba(244, 45, 83, 0.08)",
+        borderColor: "rgba(18, 176, 226, 0.85)",
+        backgroundColor: "rgba(18, 176, 226, 0.12)",
         duration: 0.25,
       });
       gsap.to(dot, {
         scale: 0.5,
-        backgroundColor: "#f42d53",
+        backgroundColor: "#ffffff",
         duration: 0.2,
       });
     };

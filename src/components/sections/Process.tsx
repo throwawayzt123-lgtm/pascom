@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Icon } from "@/components/ui/Icon";
 import { Magnetic } from "@/components/animations/Magnetic";
+import { SplitTextHeading } from "@/components/animations/SplitTextHeading";
 import { TiltCard } from "@/components/animations/TiltCard";
 import { images } from "@/data/images";
 
@@ -181,14 +182,8 @@ export function Process() {
   return (
     <section
       ref={sectionRef}
-      className="on-dark bg-dark relative isolate py-24 sm:py-32"
+      className="on-dark bg-black relative isolate py-24 sm:py-32 text-white"
     >
-      {/* Decorative ambient neon background glows contained safely */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 right-10 h-96 w-96 rounded-full bg-accent-500/12 blur-[140px]" />
-        <div className="absolute bottom-20 left-10 h-96 w-96 rounded-full bg-secondary/12 blur-[150px]" />
-      </div>
-
       <div className="container-site relative z-10">
         {/* Split Screen Layout: Left side gets STUCK (pinned), Right side KEEPS SCROLLING */}
         <div
@@ -201,30 +196,33 @@ export function Process() {
             className="w-full lg:sticky lg:top-24 lg:self-start z-20"
           >
             <span className="eyebrow mb-5">How We Work</span>
-            <h2 className="text-h2 mt-2 font-display font-black text-white">
+            <SplitTextHeading
+              as="h2"
+              className="text-h2 mt-2 font-display font-black text-white"
+            >
               A proven path from{" "}
-              <span className="bg-gradient-to-r from-accent-400 via-secondary to-accent-300 bg-clip-text text-transparent">
+              <span className="text-accent-500">
                 first listing to scale
               </span>
-            </h2>
+            </SplitTextHeading>
             <p className="text-lead mt-5 max-w-xl text-white/75">
               A transparent, 5-stage agile growth system that eliminates the guesswork and turns views into reliable daily GMV.
             </p>
 
             {/* Dynamic Step Progress Tracker Box */}
-            <div className="mt-8 rounded-2xl border border-white/15 bg-white/[0.04] p-5 shadow-xl backdrop-blur-md">
+            <div className="mt-8 rounded-2xl border border-line bg-[#0a0c10] p-5 shadow-xl">
               <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-white/80">
                 <span className="flex items-center gap-2">
-                  <span className="size-2 rounded-full bg-secondary animate-ping" />
+                  <span className="size-2 rounded-full bg-accent-500 shadow-[0_0_8px_#12b0e2]" />
                   Active Milestone: Step {currentStep.step} of 05
                 </span>
                 <span className="font-display text-accent-400">{progressPercent}%</span>
               </div>
 
-              {/* Glowing progress line */}
+              {/* Solid progress line (No Gradient) */}
               <div className="mt-3.5 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
                 <div
-                  className="h-full bg-gradient-to-r from-accent-500 via-secondary to-accent-400 transition-all duration-500 ease-out"
+                  className="h-full bg-accent-500 transition-all duration-500 ease-out"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
@@ -246,7 +244,7 @@ export function Process() {
                     onClick={() => scrollToStep(idx)}
                     className={`flex w-full items-center justify-between rounded-xl px-4 py-2.5 text-left text-sm font-semibold transition-all duration-300 cursor-pointer ${
                       isActive
-                        ? "border border-accent-500/50 bg-white/10 text-white shadow-md ring-1 ring-accent-500/30"
+                        ? "border border-accent-500 bg-[#0a0c10] text-accent-400 shadow-md font-bold"
                         : "border border-transparent text-white/60 hover:bg-white/5 hover:text-white"
                     }`}
                   >
@@ -301,12 +299,12 @@ export function Process() {
                     <article
                       className={`group relative overflow-hidden rounded-2xl border transition-all duration-500 ${
                         isActive
-                          ? "border-accent-500/60 bg-ink-900/90 shadow-[0_20px_50px_rgba(0,0,0,0.6),0_0_30px_rgba(18,176,226,0.15)] ring-1 ring-accent-500/30"
-                          : "border-white/10 bg-white/[0.03] shadow-md hover:border-white/20"
+                          ? "border-accent-500 bg-[#0a0c10] shadow-xl"
+                          : "border-line bg-[#0a0c10] shadow-md hover:border-white/20"
                       }`}
                     >
                       {/* Top Visual Image Banner */}
-                      <div className="relative aspect-[16/8.5] w-full overflow-hidden bg-surface-2 sm:aspect-[16/8]">
+                      <div className="relative aspect-[16/8.5] w-full overflow-hidden bg-[#12151b] sm:aspect-[16/8]">
                         <Image
                           src={item.image}
                           alt={item.title}
@@ -314,29 +312,30 @@ export function Process() {
                           sizes="(min-width: 1024px) 550px, 100vw"
                           className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
                         />
+                        {/* Solid dark overlay (No Gradients) */}
                         <div
                           aria-hidden="true"
-                          className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-950/30 to-ink-950/40"
+                          className="absolute inset-0 bg-black/40"
                         />
 
                         {/* Top Badges on Image */}
                         <div className="absolute inset-x-4 top-4 flex items-center justify-between">
-                          <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-black tracking-wider text-ink-900 uppercase shadow-md backdrop-blur-md">
+                          <span className="rounded-full border border-white/20 bg-black/80 px-3 py-1 text-xs font-bold tracking-wider text-white uppercase backdrop-blur-md">
                             {item.phase}
                           </span>
-                          <span className="rounded-full border border-white/20 bg-ink-950/80 px-3 py-1 font-display text-xs font-bold text-white shadow-md backdrop-blur-md">
+                          <span className="rounded-full border border-white/20 bg-black/80 px-3 py-1 font-display text-xs font-bold text-white shadow-md backdrop-blur-md">
                             STEP {item.step} / 05
                           </span>
                         </div>
 
                         {/* Bottom Row on Image */}
                         <div className="absolute inset-x-4 bottom-4 flex items-end justify-between">
-                          <span className="icon-tile size-11 rounded-xl bg-gradient-to-br from-secondary to-secondary-600 text-white shadow-lg ring-2 ring-white/20">
+                          <span className="grid size-11 place-items-center rounded-xl bg-black/80 border border-white/20 text-accent-400 shadow-lg backdrop-blur-md transition-colors group-hover:bg-accent-500 group-hover:text-black">
                             <Icon name={item.icon} size={22} />
                           </span>
 
-                          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-ink-950/80 px-3 py-1 text-xs font-bold text-white shadow-md backdrop-blur-md">
-                            <span className="size-1.5 rounded-full bg-accent-400 animate-pulse" />
+                          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/80 px-3 py-1 text-xs font-bold text-white shadow-md backdrop-blur-md">
+                            <span className="size-1.5 rounded-full bg-accent-500" />
                             {item.metric}
                           </span>
                         </div>
@@ -344,7 +343,7 @@ export function Process() {
 
                       {/* Card Content */}
                       <div className="p-6 sm:p-8">
-                        <h3 className="font-display text-xl font-bold text-white sm:text-2xl transition-colors group-hover:text-accent-300">
+                        <h3 className="font-display text-xl font-bold text-white sm:text-2xl transition-colors group-hover:text-accent-400">
                           {item.title}
                         </h3>
                         <p className="mt-3 text-base leading-relaxed text-white/75">
@@ -352,7 +351,7 @@ export function Process() {
                         </p>
 
                         {/* Deliverables checklist */}
-                        <div className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-4.5">
+                        <div className="mt-6 rounded-xl border border-line bg-black/50 p-4.5">
                           <p className="text-xs font-bold tracking-wider text-accent-400 uppercase">
                             Key Deliverables
                           </p>
@@ -369,9 +368,9 @@ export function Process() {
                         </div>
                       </div>
 
-                      {/* Bottom glowing accent bar */}
+                      {/* Solid bottom accent bar (No Gradient) */}
                       <div
-                        className={`h-1 w-full bg-gradient-to-r from-accent-500 via-secondary to-accent-500 transition-opacity duration-300 ${
+                        className={`h-1 w-full bg-accent-500 transition-opacity duration-300 ${
                           isActive ? "opacity-100" : "opacity-0"
                         }`}
                       />

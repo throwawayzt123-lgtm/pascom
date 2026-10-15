@@ -7,13 +7,7 @@ import { testimonials } from "@/data/content";
 
 export function Testimonials() {
   return (
-    <section className="section relative isolate overflow-hidden bg-white">
-      {/* Decorative ambient background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-32 right-1/4 h-80 w-80 rounded-full bg-accent-500/8 blur-3xl"
-      />
-
+    <section className="section relative isolate overflow-hidden bg-black text-white">
       <div className="container-site relative z-1">
         <SectionHeading
           eyebrow="Client Love"
@@ -29,15 +23,9 @@ export function Testimonials() {
           {testimonials.map((item) => (
             <li key={item.name} className="reveal h-full">
               <TiltCard maxTilt={5} className="h-full">
-                <figure className="card group relative flex h-full flex-col overflow-hidden border border-line bg-white p-7 shadow-(--elevation-sm) transition-all duration-300 hover:border-accent-500/50 hover:shadow-(--elevation-lg)">
-                  {/* Subtle hover gradient glow */}
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute top-0 right-0 h-32 w-32 bg-gradient-to-bl from-accent-500/10 via-secondary/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  />
-
+                <figure className="group relative flex h-full flex-col overflow-hidden rounded-(--round-xl) border border-line bg-[#0a0c10] p-7 shadow-md transition-all duration-300 hover:border-accent-500">
                   <div className="flex items-center justify-between">
-                    <Icon name="quote" size={34} className="text-accent-200 transition-colors group-hover:text-accent-500" />
+                    <Icon name="quote" size={34} className="text-accent-500/30 transition-colors group-hover:text-accent-500" />
                     <div className="flex gap-1 text-amber-400" aria-label="Rated 5 out of 5">
                       {Array.from({ length: 5 }, (_, index) => (
                         <Icon key={index} name="star" size={15} />
@@ -45,26 +33,26 @@ export function Testimonials() {
                     </div>
                   </div>
 
-                  <blockquote className="mt-5 flex-1 text-[0.98rem] leading-relaxed text-ink/90 font-medium">
+                  <blockquote className="mt-5 flex-1 text-[0.98rem] leading-relaxed text-white/90 font-medium">
                     &ldquo;{item.quote}&rdquo;
                   </blockquote>
 
-                  <figcaption className="mt-6 flex items-center gap-3.5 border-t border-line/60 pt-5">
-                    <span className="grid size-11 place-items-center rounded-full bg-gradient-to-tr from-secondary to-secondary-600 font-display text-sm font-bold text-on-secondary shadow-sm transition-transform duration-300 group-hover:scale-105">
+                  <figcaption className="mt-6 flex items-center gap-3.5 border-t border-line pt-5">
+                    <span className="grid size-11 place-items-center rounded-full bg-accent-500/15 border border-accent-500/30 font-display text-sm font-bold text-accent-400 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:bg-accent-500 group-hover:text-black">
                       {item.name
                         .split(" ")
                         .map((part) => part[0])
                         .join("")}
                     </span>
                     <div>
-                      <span className="block font-bold text-ink">{item.name}</span>
+                      <span className="block font-bold text-white">{item.name}</span>
                       <span className="block text-xs font-medium text-muted">{item.role}</span>
                     </div>
                   </figcaption>
 
-                  {/* Bottom bar indicator */}
+                  {/* Solid bottom bar indicator (No Gradient) */}
                   <span
-                    className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-accent-500 to-secondary transition-transform duration-500 group-hover:scale-x-100"
+                    className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-accent-500 transition-transform duration-500 group-hover:scale-x-100"
                     aria-hidden="true"
                   />
                 </figure>

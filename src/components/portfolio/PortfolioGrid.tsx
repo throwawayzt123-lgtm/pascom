@@ -31,15 +31,15 @@ export function PortfolioGrid() {
               type="button"
               aria-pressed={active}
               onClick={() => setFilter(item)}
-              className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-all duration-300 ${
+              className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300 cursor-pointer ${
                 active
-                  ? "border-accent-500 bg-accent-500 text-on-primary"
-                  : "border-line bg-white text-ink hover:border-accent-200 hover:text-accent-700"
+                  ? "border-accent-500 bg-accent-500 text-black font-bold shadow-[0_0_15px_rgba(18,176,226,0.25)]"
+                  : "border-white/10 bg-[#0a0c10] text-zinc-300 hover:border-white/30 hover:text-white"
               }`}
             >
               {item}
               <span
-                className={`rounded-full px-1.5 text-xs ${active ? "bg-ink-900/10" : "bg-surface-2 text-muted"}`}
+                className={`rounded-full px-2 py-0.5 text-xs font-semibold ${active ? "bg-black/20 text-black" : "bg-white/10 text-zinc-400"}`}
               >
                 {count}
               </span>

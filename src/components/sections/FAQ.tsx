@@ -1,4 +1,5 @@
 import { Icon } from "@/components/ui/Icon";
+import { SplitTextHeading } from "@/components/animations/SplitTextHeading";
 import { faqs } from "@/data/content";
 import { site, whatsappLink } from "@/data/site";
 
@@ -14,7 +15,7 @@ export function FAQ() {
   };
 
   return (
-    <section className="section bg-surface">
+    <section className="section bg-black text-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c") }}
@@ -22,15 +23,15 @@ export function FAQ() {
       <div className="container-site grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div className="reveal lg:sticky lg:top-[calc(var(--header-h)+2rem)] lg:self-start">
           <span className="eyebrow">FAQ</span>
-          <h2 className="text-h2 mt-5">
+          <SplitTextHeading as="h2" className="text-h2 mt-5 text-white">
             Questions? <span className="highlight">We&apos;ve got answers.</span>
-          </h2>
+          </SplitTextHeading>
           <p className="text-lead mt-5 text-muted">
             Everything you need to know about working with a TikTok Shop agency. Can&apos;t find
             what you&apos;re looking for? Talk to us directly.
           </p>
-          <div className="mt-8 rounded-(--round-lg) border border-line bg-white p-6 shadow-(--elevation-sm)">
-            <p className="font-bold">Still have questions?</p>
+          <div className="mt-8 rounded-(--round-lg) border border-line bg-[#0a0c10] p-6 shadow-md">
+            <p className="font-bold text-white">Still have questions?</p>
             <p className="mt-1 text-sm text-muted">Our team usually replies within a few hours.</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a
@@ -56,11 +57,11 @@ export function FAQ() {
               key={faq.question}
               name="faq"
               open={index === 0}
-              className="reveal group rounded-(--round-lg) border border-line bg-white transition-[border-color,box-shadow] duration-300 open:border-accent-200 open:shadow-(--elevation-md)"
+              className="reveal group rounded-(--round-lg) border border-line bg-[#0a0c10] transition-[border-color,box-shadow] duration-300 open:border-accent-500 open:shadow-lg"
             >
-              <summary className="flex items-center justify-between gap-4 p-5 text-left sm:p-6">
-                <span className="text-[1.02rem] font-bold sm:text-lg">{faq.question}</span>
-                <span className="grid size-9 shrink-0 place-items-center rounded-full border border-line text-accent-700 transition-all duration-300 group-open:rotate-45 group-open:border-transparent group-open:bg-accent-500 group-open:text-on-primary">
+              <summary className="flex items-center justify-between gap-4 p-5 text-left sm:p-6 cursor-pointer">
+                <span className="text-[1.02rem] font-bold text-white sm:text-lg">{faq.question}</span>
+                <span className="grid size-9 shrink-0 place-items-center rounded-full border border-line text-accent-400 transition-all duration-300 group-open:rotate-45 group-open:border-transparent group-open:bg-accent-500 group-open:text-black">
                   <Icon name="plus" size={18} />
                 </span>
               </summary>

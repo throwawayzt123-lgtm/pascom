@@ -25,7 +25,7 @@ export default function PortfolioPage() {
         breadcrumb={[{ label: "Portfolio" }]}
       />
 
-      <section className="section bg-surface">
+      <section className="section bg-black text-white">
         <div className="container-site">
           <PortfolioGrid />
         </div>

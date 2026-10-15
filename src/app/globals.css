@@ -2,9 +2,8 @@
 
 /* ==========================================================================
    PashaCommerce — Global design tokens
-   Flat colour system: #12B0E2 primary, #F42D53 side accent, near-black ink
-   for text and dark sections. No gradients.
-   Edit values here and the whole site updates.
+   Pure black theme: #12B0E2 primary brand blue, crisp white accents,
+   and deep black surfaces. No gradients, zero red.
    ========================================================================== */
 :root {
   /* Accent — #12B0E2 is the primary brand colour */
@@ -14,37 +13,37 @@
   --accent-300: #6dcdee;
   --accent-400: #3dbfe8;
   --accent-500: #12b0e2;
-  --accent-600: #0e9ccb; /* hover; large text on white (AA large) */
-  --accent-700: #0880a8; /* small text & links on white (AA 4.5:1) */
+  --accent-600: #0e9ccb; /* hover */
+  --accent-700: #0880a8;
 
-  /* Secondary — #F42D53 is the side accent */
-  --secondary-50: #feedf1;
-  --secondary-100: #fdd5dd;
-  --secondary-500: #f42d53;
-  --secondary-600: #d91e44; /* hover */
-  --secondary-700: #b8173a; /* small text on white (AA) */
+  /* Secondary / White & Ice Blue Accents (No red) */
+  --secondary-50: #f8fafc;
+  --secondary-100: #f1f5f9;
+  --secondary-500: #ffffff;
+  --secondary-600: #e2e8f0;
+  --secondary-700: #cbd5e1;
 
   /* Ink — a soft, neutral black */
-  --ink-950: #08090b;
-  --ink-900: #0e1013;
-  --ink-800: #171a1f;
-  --ink-700: #252a31;
+  --ink-950: #000000;
+  --ink-900: #050608;
+  --ink-800: #0d1016;
+  --ink-700: #161a22;
 
-  /* Semantic colours */
-  --bg: #ffffff;
-  --surface: #f5f7f9;
-  --surface-2: #ebeff2;
-  --text: #111317;
-  --muted: #5a626e;
-  --subtle: #8a919c;
-  --line: #e5e8ec;
-  --line-strong: #cfd5dc;
+  /* Semantic colours - PURE BLACK THEME (No gradients) */
+  --bg: #000000;
+  --surface: #0a0c10;
+  --surface-2: #12151b;
+  --text: #ffffff;
+  --muted: #9ca3af;
+  --subtle: #64748b;
+  --line: #1e2229;
+  --line-strong: #2c333e;
   --primary: var(--accent-500);
-  --primary-hover: var(--accent-600);
-  --on-primary: var(--ink-900); /* text on #12B0E2 — 7.6:1 contrast */
-  --secondary: var(--secondary-500);
-  --secondary-hover: var(--secondary-600);
-  --on-secondary: #ffffff;
+  --primary-hover: var(--accent-400);
+  --on-primary: #000000; /* text on #12B0E2 */
+  --secondary: #ffffff;
+  --secondary-hover: var(--accent-400);
+  --on-secondary: #000000;
   --whatsapp: #25d366;
   --whatsapp-hover: #1ebe5a;
   --success: #16a34a;
@@ -239,7 +238,7 @@
 
   /* Accent-coloured words inside headings */
   .highlight {
-    color: var(--accent-600);
+    color: var(--accent-500);
   }
   .on-dark .highlight {
     color: var(--accent-500);
@@ -247,7 +246,7 @@
 
   /* Dark (ink) sections */
   .bg-dark {
-    background-color: var(--ink-900);
+    background-color: var(--ink-950);
     color: #fff;
   }
 
@@ -258,9 +257,9 @@
     gap: 0.5rem;
     padding: 0.4rem 0.9rem;
     border-radius: var(--round-full);
-    background: var(--accent-50);
-    border: 1px solid var(--accent-100);
-    color: var(--accent-700);
+    background: rgba(18, 176, 226, 0.12);
+    border: 1px solid rgba(18, 176, 226, 0.28);
+    color: var(--accent-500);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -272,11 +271,12 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--secondary);
+    background: var(--accent-500);
+    box-shadow: 0 0 8px var(--accent-500);
   }
   .on-dark .eyebrow {
-    background: rgb(255 255 255 / 0.05);
-    border-color: rgb(255 255 255 / 0.12);
+    background: rgba(18, 176, 226, 0.12);
+    border-color: rgba(18, 176, 226, 0.28);
     color: var(--accent-500);
   }
 
@@ -317,41 +317,50 @@
     padding: 0.9rem 1.9rem;
     font-size: 1rem;
   }
-  /* Primary button: #12B0E2 with ink text, switches to the side accent on hover */
+  /* Primary button: #12B0E2 with black text, transitions to crisp white on hover */
   .btn-primary {
     background: var(--primary);
     color: var(--on-primary);
+    box-shadow: 0 0 20px rgba(18, 176, 226, 0.22);
   }
   .btn-primary:hover {
-    background: var(--secondary);
-    color: var(--on-secondary);
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
   }
-  /* Secondary button: #F42D53 */
+  /* Secondary button: Crisp white with dark text, switches to brand blue on hover */
   .btn-secondary {
-    background: var(--secondary);
-    color: var(--on-secondary);
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
   }
   .btn-secondary:hover {
-    background: var(--secondary-hover);
+    background: var(--accent-400);
+    color: #000000;
+    box-shadow: 0 0 25px rgba(18, 176, 226, 0.35);
   }
   .btn-outline {
-    background: #fff;
-    color: var(--text);
-    border-color: var(--line-strong);
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(8px);
   }
   .btn-outline:hover {
-    border-color: var(--secondary);
-    color: var(--secondary-700);
+    border-color: var(--accent-500);
+    color: #ffffff;
+    background: rgba(18, 176, 226, 0.08);
+    box-shadow: 0 0 16px rgba(18, 176, 226, 0.2);
   }
   .btn-outline-dark {
-    background: transparent;
-    color: var(--ink-900);
-    border-color: var(--ink-900);
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.14);
   }
   .btn-outline-dark:hover {
-    background: var(--ink-900);
-    color: #fff;
-    border-color: var(--ink-900);
+    background: var(--accent-500);
+    color: #000000;
+    border-color: var(--accent-500);
+    box-shadow: 0 0 20px rgba(18, 176, 226, 0.3);
   }
   .btn-ghost-light {
     background: transparent;
@@ -373,10 +382,11 @@
 
   /* Cards */
   .card {
-    background: #fff;
+    background: #0a0c10;
     border: 1px solid var(--line);
     border-radius: var(--round-lg);
-    box-shadow: var(--elevation-sm);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
     transition:
       transform 350ms var(--ease-smooth),
       box-shadow 350ms var(--ease-smooth),
@@ -384,19 +394,20 @@
   }
   .card-hover:hover {
     transform: translateY(-4px);
-    box-shadow: var(--elevation-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     border-color: var(--accent-500);
   }
 
-  /* Icon tiles: side-accent square with white icon */
+  /* Icon tiles: sleek dark surface with subtle border and brand blue icon */
   .icon-tile {
     display: grid;
     place-items: center;
     width: 3rem;
     height: 3rem;
     border-radius: 14px;
-    background: var(--secondary);
-    color: var(--on-secondary);
+    background: #12151b;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--accent-500);
     flex-shrink: 0;
   }
   .icon-tile-soft {
@@ -405,9 +416,9 @@
     width: 3rem;
     height: 3rem;
     border-radius: 14px;
-    background: var(--accent-50);
-    color: var(--accent-700);
-    border: 1px solid var(--accent-100);
+    background: rgba(18, 176, 226, 0.12);
+    color: var(--accent-500);
+    border: 1px solid rgba(18, 176, 226, 0.25);
     flex-shrink: 0;
   }
 
@@ -417,7 +428,7 @@
     margin-bottom: 0.4rem;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--text);
+    color: #ffffff;
   }
   .field {
     width: 100%;
@@ -425,8 +436,8 @@
     padding: 0.7rem 0.95rem;
     border-radius: var(--round-md);
     border: 1px solid var(--line-strong);
-    background: #fff;
-    color: var(--text);
+    background: #0d1016;
+    color: #ffffff;
     font-size: 0.95rem;
     transition:
       border-color var(--duration) var(--ease-smooth),
@@ -442,7 +453,7 @@
   }
   select.field {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%235a626e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.9rem center;
     padding-right: 2.5rem;

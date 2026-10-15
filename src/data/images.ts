@@ -18,7 +18,7 @@ export const images = {
   headphones: unsplash("photo-1505740420928-5e560c06d30e"),
   smartwatch: unsplash("photo-1523275335684-37898b6baf30"),
   // Dedicated Service Cards Photography
-  serviceSetup: unsplash("photo-1556742049-0a67c5574f73", 900, 600),
+  serviceSetup: "/images/service-setup.jpg",
   serviceCatalog: unsplash("photo-1523275335684-37898b6baf30", 900, 600),
   serviceOps: unsplash("photo-1586528116311-ad8dd3c8310d", 900, 600),
   serviceCreators: unsplash("photo-1534528741775-53994a69daeb", 900, 600),

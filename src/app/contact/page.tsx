@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { PageHero } from "@/components/ui/PageHero";
+import { SplitTextHeading } from "@/components/animations/SplitTextHeading";
 import { TiltCard } from "@/components/animations/TiltCard";
 import { site, whatsappLink } from "@/data/site";
 
@@ -84,17 +85,7 @@ export default function ContactPage() {
         breadcrumb={[{ label: "Contact" }]}
       />
 
-      <section className="section relative isolate overflow-hidden bg-surface">
-        {/* Subtle decorative background glow */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-40 -left-40 h-96 w-96 rounded-full bg-accent-500/10 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 -right-40 h-96 w-96 rounded-full bg-secondary/10 blur-3xl"
-        />
-
+      <section className="section relative isolate overflow-hidden bg-black text-white">
         <div className="container-site relative grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-12">
           {/* Left Column: Contact details & Journey */}
           <div className="space-y-6">
@@ -106,7 +97,7 @@ export default function ContactPage() {
                       className={
                         channel.tone === "whatsapp"
                           ? "grid size-12.5 shrink-0 place-items-center rounded-2xl bg-whatsapp text-white shadow-md transition-transform duration-300 group-hover:scale-105"
-                          : "icon-tile size-12.5 rounded-2xl bg-gradient-to-br from-secondary to-secondary-600 text-white shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:rotate-2"
+                          : "grid size-12.5 shrink-0 place-items-center rounded-2xl bg-accent-500/15 border border-accent-500/30 text-accent-400 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:bg-accent-500 group-hover:text-black"
                       }
                     >
                       <Icon name={channel.icon} size={22} />
@@ -123,18 +114,18 @@ export default function ContactPage() {
                             }`}
                           >
                             {channel.tone === "whatsapp" && (
-                              <span className="size-1.5 rounded-full bg-whatsapp animate-ping" />
+                              <span className="size-1.5 rounded-full bg-whatsapp" />
                             )}
                             {channel.status}
                           </span>
                         )}
                       </div>
-                      <span className="mt-0.5 block font-display text-base font-bold break-words text-ink transition-colors group-hover:text-accent-700">
+                      <span className="mt-0.5 block font-display text-base font-bold break-words text-white transition-colors group-hover:text-accent-400">
                         {channel.value}
                       </span>
                     </div>
                     {channel.href && (
-                      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-surface-2 text-subtle transition-all duration-300 group-hover:bg-accent-500 group-hover:text-on-primary">
+                      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[#12151b] text-subtle transition-all duration-300 group-hover:bg-accent-500 group-hover:text-black">
                         <Icon name="arrowUpRight" size={16} />
                       </span>
                     )}
@@ -148,12 +139,12 @@ export default function ContactPage() {
                         <a
                           href={channel.href}
                           {...(channel.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                          className="card card-hover group flex items-center p-5"
+                          className="card card-hover group flex items-center p-5 border border-line bg-[#0a0c10] text-white"
                         >
                           {content}
                         </a>
                       ) : (
-                        <div className="card flex items-center p-5">{content}</div>
+                        <div className="card flex items-center p-5 border border-line bg-[#0a0c10] text-white">{content}</div>
                       )}
                     </TiltCard>
                   </li>
@@ -162,22 +153,18 @@ export default function ContactPage() {
             </ul>
 
             {/* "What happens next?" with modern funky steps */}
-            <div className="on-dark bg-dark reveal relative overflow-hidden rounded-(--round-xl) border border-white/10 p-7 text-white shadow-(--elevation-lg)">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -top-20 -right-20 h-40 w-40 rounded-full bg-accent-500/20 blur-2xl"
-              />
+            <div className="on-dark reveal relative overflow-hidden rounded-(--round-xl) border border-line bg-[#0a0c10] p-7 text-white shadow-xl">
               <div className="relative z-1">
-                <span className="rounded-full bg-white/10 px-3 py-1 font-display text-[0.7rem] font-black tracking-widest text-accent-500 uppercase">
+                <span className="rounded-full bg-accent-500/15 border border-accent-500/30 px-3 py-1 font-display text-[0.7rem] font-bold tracking-widest text-accent-400 uppercase">
                   Our Process
                 </span>
-                <h2 className="mt-3 font-display text-xl font-bold">What happens after you reach out?</h2>
+                <h2 className="mt-3 font-display text-xl font-bold text-white">What happens after you reach out?</h2>
 
                 <ol className="mt-6 space-y-5">
                   {nextSteps.map((step, index) => (
                     <li key={step.title} className="flex gap-4">
                       <div className="flex flex-col items-center">
-                        <span className="grid size-8 shrink-0 place-items-center rounded-full bg-gradient-to-tr from-accent-500 to-secondary font-display text-xs font-black text-on-primary shadow-sm">
+                        <span className="grid size-8 shrink-0 place-items-center rounded-full bg-accent-500 font-display text-xs font-black text-black shadow-sm">
                           {index + 1}
                         </span>
                         {index < nextSteps.length - 1 && (
@@ -193,7 +180,7 @@ export default function ContactPage() {
                 </ol>
 
                 <div className="mt-6 flex items-center gap-2 rounded-xl bg-white/5 p-3 text-xs text-white/80 border border-white/10">
-                  <Icon name="shield" size={16} className="text-accent-500 shrink-0" />
+                  <Icon name="shield" size={16} className="text-accent-400 shrink-0" />
                   <span>All conversations are strictly confidential. We sign NDAs on request.</span>
                 </div>
               </div>
@@ -201,17 +188,13 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Upgraded Interactive Form */}
-          <div className="reveal card relative overflow-hidden p-6 sm:p-10 shadow-(--elevation-lg)">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute top-0 right-0 h-32 w-32 bg-gradient-to-bl from-accent-500/10 via-secondary/5 to-transparent"
-            />
+          <div className="reveal relative overflow-hidden rounded-(--round-xl) border border-line bg-[#0a0c10] p-6 sm:p-10 shadow-xl text-white">
             <div className="relative z-1">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">
+                <SplitTextHeading as="h2" className="font-display text-2xl font-bold text-white sm:text-3xl">
                   Send us an enquiry
-                </h2>
-                <span className="rounded-full bg-secondary-50 px-2.5 py-1 text-xs font-bold text-secondary-700">
+                </SplitTextHeading>
+                <span className="rounded-full bg-accent-500/15 border border-accent-500/30 px-3 py-1 text-xs font-bold text-accent-400">
                   ⚡ Free Strategy Plan
                 </span>
               </div>
@@ -225,9 +208,9 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section aria-label="Our location" className="bg-surface pb-(--section-y)">
+      <section aria-label="Our location" className="bg-black pb-(--section-y)">
         <div className="container-site">
-          <div className="reveal overflow-hidden rounded-(--round-xl) border border-line bg-white shadow-(--elevation-md)">
+          <div className="reveal overflow-hidden rounded-(--round-xl) border border-line bg-[#0a0c10] shadow-md">
             <iframe
               title="PashaCommerce location — Lahore, Pakistan"
               src="https://www.google.com/maps?q=Lahore,+Pakistan&z=11&output=embed"
